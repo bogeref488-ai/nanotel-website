@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import heroImg from "../assets/hero.jpg";
+<img src={heroImg} alt="Hero" />
 
 export default function Hero() {
   const [start, setStart] = useState(false);
