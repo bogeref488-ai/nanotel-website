@@ -1,16 +1,9 @@
 <!doctype html>
 <html lang="en">
-  <head><!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RSMM1JVGWS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-RSMM1JVGWS');
-</script>
+  <head>
     <meta charset="UTF-8" />
 
-    <!-- IMPORTANT: use BASE_URL for GitHub Pages subpath -->
+    <!-- IMPORTANT: GitHub Pages subpath -->
     <link rel="icon" type="image/png" href="%BASE_URL%logo.png" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,6 +19,8 @@
       content="telecom africa, telecom infrastructure, network engineering, managed services, nanotel africa"
     />
     <meta name="author" content="Nanotel Africa" />
+
+    <!-- Open Graph -->
     <meta property="og:title" content="Nanotel Africa" />
     <meta
       property="og:description"
@@ -33,14 +28,25 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://bogeref488-ai.github.io/nanotel-website/" />
-
     <meta property="og:image" content="%BASE_URL%hero.jpg" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSMM1JVGWS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RSMM1JVGWS');
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
 
+    <!-- IMPORTANT: Vite entry -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

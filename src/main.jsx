@@ -1,13 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { HashRouter } from "react-router-dom";
-import App from "./App.jsx";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 import "./index.css";
+
+// Google Analytics page tracking for React routes
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+function AnalyticsTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.gtag('config', 'G-RSMM1JVGWS', {
+      page_path: location.pathname + location.hash,
+    });
+  }, [location]);
+
+  return null;
+}
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
+      <AnalyticsTracker />
       <App />
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );
