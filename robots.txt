@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bogeref488-ai.github.io/nanotel-website/sitemap.xml
