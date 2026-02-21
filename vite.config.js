@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/nanotel-website/", // IMPORTANT for GitHub Pages
+  base: "/nanotel-website/",   // 👈 MUST match repo name EXACTLY
 });
