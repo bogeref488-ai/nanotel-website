@@ -20,7 +20,16 @@
       gtag('js', new Date());
       gtag('config', 'G-RSMM1JVGWS');
     </script>
-    <script type="module" crossorigin src="/assets/index-DyHKNJaX.js"></script>
+    <script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const p = params.get("p");
+    if (p) {
+      window.history.replaceState(null, "", decodeURIComponent(p));
+    }
+  })();
+</script>
+    <script type="module" crossorigin src="/assets/index-DShtmvpl.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CT4KApRu.css">
   </head>
 
