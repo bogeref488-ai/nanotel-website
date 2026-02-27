@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://bogeref488-ai.github.io/nanotel-website/</loc>
-  </url>
+  <url><loc>https://nanotel.net/</loc></url>
+  <url><loc>https://nanotel.net/#about</loc></url>
+  <url><loc>https://nanotel.net/#services</loc></url>
+  <url><loc>https://nanotel.net/#human-capital</loc></url>
 </urlset>
-  <url>
-    <loc>https://bogeref488-ai.github.io/nanotel-website/#/about</loc>
-  </url>
-
-  <url>
-    <loc>https://bogeref488-ai.github.io/nanotel-website/#/services</loc>
-  </url>
-
-  <url>
-    <loc>https://bogeref488-ai.github.io/nanotel-website/#/human-capital</loc>
-  </url>
-
-  <url>
-    <loc>https://bogeref488-ai.github.io/nanotel-website/#/ethics</loc>
-  </url>
-
-  <url>
-    <loc>https://bogeref488-ai.github.io/nanotel-website/#/contact</loc>
-  </url>
-
-</urlset><url><loc>https://nanotel.net/#/overview</loc></url>
-<url><loc>https://nanotel.net/#/investors</loc></url>
-<url><loc>https://nanotel.net/#/partnerships</loc></url>
