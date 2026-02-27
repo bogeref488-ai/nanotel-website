@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://nanotel.net/</loc></url>
+  <url><loc>https://nanotel.net/overview</loc></url>
+  <url><loc>https://nanotel.net/about</loc></url>
+  <url><loc>https://nanotel.net/services</loc></url>
+  <url><loc>https://nanotel.net/human-capital</loc></url>
+  <url><loc>https://nanotel.net/ethics</loc></url>
+  <url><loc>https://nanotel.net/partnerships</loc></url>
+  <url><loc>https://nanotel.net/investors</loc></url>
+  <url><loc>https://nanotel.net/contact</loc></url>
 </urlset>
