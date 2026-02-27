@@ -7,19 +7,19 @@ export default function About() {
         "Leads Nanotel’s Pan-African strategy, partnerships, and long-term open network vision.",
     },
     {
-      name: "Head of Engineering",
+      name: "Mukiibi Fauzi",
       role: "Network Delivery & Integration",
       desc:
         "Owns design, deployment execution, integration, and quality acceptance across projects.",
     },
     {
-      name: "Head of Operations",
+      name: "Kabashambo Josephine",
       role: "Managed Services & Maintenance",
       desc:
         "Leads SLA-based operations, incident response, preventive maintenance, and reporting.",
     },
     {
-      name: "Head of Partnerships",
+      name: "Nanyanzi Jovin",
       role: "OEM, Operators & Programs",
       desc:
         "Builds strategic alliances with OEMs, TowerCos, operators, and public programs.",
@@ -117,34 +117,75 @@ export default function About() {
       </section>
 
       {/* FOUNDER + LEADERSHIP */}
-      <section className="section">
-        <div className="container-wrap">
-          <h2 className="h2">Founder & Leadership</h2>
-          <p className="p mt-2 max-w-3xl">
-            Nanotel is led by professionals focused on execution excellence, compliance discipline, and scalable delivery across Africa.
-          </p>
+      <section className="py-20 bg-slate-50">
+  <div className="max-w-6xl mx-auto px-4">
+    
+    <h2 className="text-3xl font-bold text-center text-slate-900">
+      Founder & Leadership
+    </h2>
+    <p className="text-center text-slate-600 mt-3">
+      Driving innovation and connectivity across Africa.
+    </p>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {leadership.map((p) => (
-              <div key={p.name} className="card-pro bg-white">
-                <div className="flex items-start gap-4">
-                  <div className="h-12 w-12 rounded-2xl bg-brand-100 border border-brand-200" />
-                  <div>
-                    <div className="font-bold text-lg text-ink-900">{p.name}</div>
-                    <div className="text-sm font-semibold text-brand-800">{p.role}</div>
-                    <p className="mt-2 text-ink-700 leading-relaxed">{p.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+    <div className="mt-12 grid gap-10 md:grid-cols-3">
 
-          {/* NOTE: you can later replace the square placeholders with real photos */}
-          <p className="mt-4 text-xs text-ink-500">
-            Note: Profile photos can be added later for a more complete corporate identity.
-          </p>
-        </div>
-      </section>
+      {/* Founder */}
+      <div className="text-center">
+        <img
+          src={`${import.meta.env.BASE_URL}team/founder.jpg`}
+          alt="Founder"
+          className="w-52 h-52 mx-auto object-cover rounded-2xl shadow-lg"
+        />
+        <h3 className="mt-6 text-xl font-bold text-slate-900">
+          Bogere Francis
+        </h3>
+        <p className="text-emerald-600 font-semibold">
+          Founder & CEO
+        </p>
+        <p className="mt-3 text-sm text-slate-600">
+          Visionary leader focused on building Africa’s future in ICT and open network infrastructure.
+        </p>
+      </div>
+
+      {/* CTO */}
+      <div className="text-center">
+        <img
+          src={`${import.meta.env.BASE_URL}team/cto.jpg`}
+          alt="Chief Technology Officer"
+          className="w-52 h-52 mx-auto object-cover rounded-2xl shadow-lg"
+        />
+        <h3 className="mt-6 text-xl font-bold text-slate-900">
+          Mukiibi Fauzi
+        </h3>
+        <p className="text-emerald-600 font-semibold">
+          CTO
+        </p>
+        <p className="mt-3 text-sm text-slate-600">
+          Leads advanced network design, infrastructure deployment, and technical innovation.
+        </p>
+      </div>
+
+      {/* CFO */}
+      <div className="text-center">
+        <img
+          src={`${import.meta.env.BASE_URL}team/cfo.jpg`}
+          alt="Chief Financial Officer"
+          className="w-52 h-52 mx-auto object-cover rounded-2xl shadow-lg"
+        />
+        <h3 className="mt-6 text-xl font-bold text-slate-900">
+          Nalubenga Lynnet
+        </h3>
+        <p className="text-emerald-600 font-semibold">
+          CFO
+        </p>
+        <p className="mt-3 text-sm text-slate-600">
+          Oversees financial strategy, investor relations, and sustainable growth planning.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* HQ + TEAMS */}
       <section className="section section-alt">

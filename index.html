@@ -2,36 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
-    <!-- IMPORTANT: GitHub Pages subpath -->
-    <link rel="icon" type="image/png" href="%BASE_URL%logo.png" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary SEO -->
     <title>Nanotel Africa | Open Networks & Telecom Infrastructure</title>
     <meta
       name="description"
       content="Nanotel delivers telecom infrastructure, managed services, and network optimization across Africa. Empowering the Future of Open Networks."
     />
-    <meta
-      name="keywords"
-      content="telecom africa, telecom infrastructure, network engineering, managed services, nanotel africa"
-    />
-    <meta name="author" content="Nanotel Africa" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Nanotel Africa" />
-    <meta
-      property="og:description"
-      content="Empowering the Future of Open Networks across Africa."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://bogeref488-ai.github.io/nanotel-website/" />
-    <meta property="og:image" content="%BASE_URL%hero.jpg" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/logo.png" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSMM1JVGWS"></script>
@@ -41,12 +20,19 @@
       gtag('js', new Date());
       gtag('config', 'G-RSMM1JVGWS');
     </script>
+    <script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const p = params.get("p");
+    if (p) {
+      window.history.replaceState(null, "", decodeURIComponent(p));
+    }
+  })();
+</script>
   </head>
 
   <body>
     <div id="root"></div>
-
-    <!-- IMPORTANT: Vite entry -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

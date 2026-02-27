@@ -1,61 +1,88 @@
 export default function Ethics() {
+  const policies = [
+    {
+      title: "Ethics & Compliance",
+      desc:
+        "We promote anti-corruption practices, fair procurement, and accountable partnerships. Our teams follow clear operational controls and reporting processes.",
+      tone: "blue",
+    },
+    {
+      title: "Privacy",
+      desc:
+        "We collect only necessary information and protect it with appropriate controls. Contact form messages are used strictly for customer support and service delivery.",
+      tone: "ink",
+    },
+    {
+      title: "Terms",
+      desc:
+        "Website content is provided for general information. Service delivery terms are defined in client contracts and formal agreements.",
+      tone: "teal",
+    },
+    {
+      title: "Safety & Duty of Care",
+      desc:
+        "Our teams operate under safety procedures and site discipline, including risk assessments, PPE compliance, and incident reporting.",
+      tone: "blue",
+    },
+    {
+      title: "Quality Assurance",
+      desc:
+        "We use checklists, audits, acceptance criteria, and KPI tracking to keep delivery consistent and measurable across regions.",
+      tone: "ink",
+    },
+    {
+      title: "Responsible Partnership",
+      desc:
+        "We collaborate with suppliers and partners that support compliance, sustainability, and professional standards.",
+      tone: "teal",
+    },
+  ];
+
   return (
-    <div style={{ padding: "70px 40px", background: "#F8FAFC", minHeight: "70vh" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <h1 style={{ fontSize: 44, margin: 0 }}>Ethics, Privacy & Terms</h1>
-
-        <p style={{ marginTop: 12, color: "#475569", lineHeight: 1.9, maxWidth: 900 }}>
-          Nanotel is committed to transparency, fair business practices, and responsible operations.
-          This page provides a simple overview of our ethics principles, privacy approach, and terms.
-          (You can replace this with a formal legal document later.)
-        </p>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18, marginTop: 28 }}>
-          <Card title="Ethics & Compliance">
-            We promote anti-corruption practices, fair procurement, and accountable partnerships.
-            Our teams follow clear operational procedures and reporting standards.
-          </Card>
-
-          <Card title="Privacy">
-            We collect only necessary information and protect it with appropriate controls.
-            Contact form messages are used strictly to respond to inquiries.
-          </Card>
-
-          <Card title="Terms">
-            Website content is provided for general information. Service delivery is governed by
-            written agreements, SLAs, and applicable regulations.
-          </Card>
+    <div className="page-bg">
+      {/* HERO */}
+      <section className="page-hero">
+        <div className="container-wrap">
+          <h1 className="page-title">Ethics, Governance & Compliance</h1>
+          <p className="page-subtitle">
+            Nanotel follows clear standards to protect our clients, partners, and communities.
+            We value integrity, transparency, and disciplined delivery.
+          </p>
         </div>
+      </section>
 
-        <div style={note}>
-          <b>Note:</b> If you want, I can generate a proper Privacy Policy and Terms & Conditions text
-          that is more complete (still editable).
+      {/* CARDS */}
+      <section className="section">
+        <div className="container-wrap">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {policies.map((p) => (
+              <div key={p.title} className={`card-pro tone-${p.tone}`}>
+                <h3 className="text-lg font-bold">{p.title}</h3>
+                <p className="mt-2 text-ink-700 leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="mt-10 card-pro border-2 border-brand-200 bg-brand-50">
+            <h2 className="text-2xl font-bold text-brand-900">
+              Compliance or Ethics Question?
+            </h2>
+            <p className="mt-2 text-ink-700">
+              Reach out for governance clarifications, compliance alignment, or operational policy questions.
+            </p>
+
+            <div className="mt-5 flex flex-wrap gap-3">
+              <a className="btn-primary" href="mailto:info@nanotel.net">
+                Email: info@nanotel.net
+              </a>
+              <a className="btn-outline" href="#/contact">
+                Contact Form
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
-
-function Card({ title, children }) {
-  return (
-    <div style={{
-      background:"white",
-      border:"1px solid #E2E8F0",
-      borderRadius:20,
-      padding:20
-    }}>
-      <h3>{title}</h3>
-      <p style={{ color:"#475569", lineHeight:1.8 }}>{children}</p>
-    </div>
-  );
-}
-
-const note = {
-  marginTop: 22,
-  background: "#FEF9C3",
-  border: "1px solid #FDE68A",
-  color: "#854D0E",
-  borderRadius: 18,
-  padding: 16,
-  lineHeight: 1.8,
-};

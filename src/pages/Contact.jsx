@@ -1,106 +1,48 @@
+import React from "react";
+
 export default function Contact() {
   return (
-    <div className="bg-slate-50">
-      <div className="mx-auto max-w-6xl px-6 py-20">
-        <h1 className="text-4xl font-extrabold text-slate-900">Contact Nanotel</h1>
-        <p className="mt-4 text-lg text-slate-600 leading-relaxed max-w-3xl">
-          Reach out for managed services, infrastructure rollout, optimization support, or partnerships.
-          Fill the form and we’ll respond as soon as possible.
-        </p>
-
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          {/* LEFT: Details */}
-          <div className="rounded-3xl border border-slate-200 bg-white p-7">
-            <h2 className="text-xl font-extrabold text-slate-900">Nanotel Office</h2>
-
-            <div className="mt-4 space-y-2 text-slate-600">
-              <p>
-                <span className="font-extrabold text-slate-900">Email:</span>{" "}
-                info@nanotel.net
-              </p>
-              <p>
-                <span className="font-extrabold text-slate-900">Phone:</span>{" "}
-                +256 709 060 891
-              </p>
-              <p>
-                <span className="font-extrabold text-slate-900">Location:</span>{" "}
-                Kampala, Uganda
-              </p>
-            </div>
-
-            <div className="mt-6 rounded-2xl border border-blue-100 bg-blue-50 p-5">
-              <div className="font-extrabold text-blue-700">Business Hours</div>
-              <div className="mt-2 text-slate-600 leading-relaxed">
-                Mon–Fri: 8:00am – 5:00pm
-                <br />
-                24/7 Support: Available for managed services clients (SLA-based)
-              </div>
-            </div>
-
-            <p className="mt-4 text-sm text-slate-500">
-              Replace these placeholders with your real Nanotel contact details.
+    <div className="page">
+      <section className="section">
+        <div className="container-wrap">
+          <div className="card p-8 md:p-10">
+            <h1 className="h2">Contact</h1>
+            <p className="p mt-2 max-w-3xl">
+              Tell us what you’re building. We will respond with the right team and a clear execution plan.
             </p>
-          </div>
 
-          {/* RIGHT: Form */}
-          <div className="rounded-3xl border border-slate-200 bg-white p-7">
-            <h2 className="text-xl font-extrabold text-slate-900">Send a Message</h2>
+            <div className="mt-8 grid gap-6 lg:grid-cols-2">
+              <div className="panel bg-brand-50 border-brand-200">
+                <h3 className="h3">Email</h3>
+                <p className="p mt-2">info@nanotel.net</p>
 
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("Message sent! (Demo form)");
-                e.target.reset();
-              }}
-              className="mt-5 grid gap-4"
-            >
-              <div className="grid gap-2">
-                <label className="text-sm font-extrabold text-slate-900">Full Name</label>
-                <input
-                  className="rounded-2xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-200"
-                  placeholder="Your name"
-                  required
-                />
+                <div className="mt-6 rounded-xl bg-white border border-brand-200 p-5">
+                  <p className="text-sm text-ink-700">
+                    For proposals, include: location, scope, timeline, and any site constraints.
+                  </p>
+                </div>
               </div>
 
-              <div className="grid gap-2">
-                <label className="text-sm font-extrabold text-slate-900">Email</label>
-                <input
-                  type="email"
-                  className="rounded-2xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-200"
-                  placeholder="you@example.com"
-                  required
-                />
+              <div className="panel">
+                <h3 className="h3">Message (Demo)</h3>
+                <form
+                  className="mt-4 grid gap-3"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    alert("Submitted (demo). We can connect this to email/API next.");
+                  }}
+                >
+                  <input className="rounded-xl border border-ink-200 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-100" placeholder="Full Name" />
+                  <input className="rounded-xl border border-ink-200 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-100" placeholder="Email" />
+                  <input className="rounded-xl border border-ink-200 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-100" placeholder="Subject" />
+                  <textarea className="rounded-xl border border-ink-200 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-100" rows="5" placeholder="Your message..." />
+                  <button className="btn-primary w-full" type="submit">Send Message</button>
+                </form>
               </div>
-
-              <div className="grid gap-2">
-                <label className="text-sm font-extrabold text-slate-900">Subject</label>
-                <input
-                  className="rounded-2xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-200"
-                  placeholder="Subject"
-                  required
-                />
-              </div>
-
-              <div className="grid gap-2">
-                <label className="text-sm font-extrabold text-slate-900">Message</label>
-                <textarea
-                  className="min-h-[140px] rounded-2xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-200"
-                  placeholder="Write your message..."
-                  required
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="mt-2 rounded-2xl bg-blue-700 px-6 py-3 font-extrabold text-white hover:bg-blue-800 transition"
-              >
-                Submit
-              </button>
-            </form>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

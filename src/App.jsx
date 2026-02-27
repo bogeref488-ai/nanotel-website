@@ -1,35 +1,69 @@
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import ScrollToTopButton from "./components/ScrollToTopButton";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Services from "./pages/Services";
-import Contact from "./pages/Contact";
-import HumanCapital from "./pages/HumanCapital";
-import Ethics from "./pages/Ethics";
-import NotFound from "./pages/NotFound";
-import PageTransition from "./components/PageTransition";
+// src/App.jsx
+import React from "react";
+import { HashRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home.jsx";
+import About from "./pages/About.jsx";
+import Services from "./pages/Services.jsx";
+import HumanCapital from "./pages/HumanCapital.jsx";
+import Ethics from "./pages/Ethics.jsx";
+import Contact from "./pages/Contact.jsx";
+import Overview from "./pages/Overview.jsx";
+import Investors from "./pages/Investors.jsx";
+import Partnerships from "./pages/Partnerships.jsx";
+import NotFound from "./pages/NotFound.jsx";
+
+import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
 
 export default function App() {
   return (
-    <>
-      <Navbar />
+    <HashRouter>
+      {/* IMPORTANT: set a default text color so pages don't become white on white */}
+      <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+        <TopBar />
+        <Navbar />
 
-      <PageTransition>
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/about" element={<About />} />
-    <Route path="/services" element={<Services />} />
-    <Route path="/human-capital" element={<HumanCapital />} />
-    <Route path="/ethics" element={<Ethics />} />
-    <Route path="/contact" element={<Contact />} />
-    <Route path="*" element={<NotFound />} />
-  </Routes>
-</PageTransition>
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/overview" element={<Overview />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/partnerships" element={<Partnerships />} />
+            <Route path="/investors" element={<Investors />} />
+            <Route path="/human-capital" element={<HumanCapital />} />
+            <Route path="/ethics" element={<Ethics />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
 
-<ScrollToTopButton />
-      <Footer />
-    </>
+        <Footer />
+      </div>
+    </HashRouter>
+  );
+}
+
+function TopBar() {
+  return (
+    <div className="bg-emerald-700 text-white">
+      <div className="max-w-6xl mx-auto px-4 py-2 text-sm flex items-center justify-between">
+        <span className="font-semibold">
+          Empowering the Future of Open Networks
+        </span>
+        <div className="flex gap-4 opacity-95">
+          <a className="hover:underline" href="#" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a className="hover:underline" href="#" rel="noreferrer">
+            Facebook
+          </a>
+          <a className="hover:underline" href="#" rel="noreferrer">
+            YouTube
+          </a>
+        </div>
+      </div>
+    </div>
   );
 }

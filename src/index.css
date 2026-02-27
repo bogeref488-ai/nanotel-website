@@ -2,8 +2,142 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Optional: smoother rendering */
-html,
-body {
+/* -------- Global Base -------- */
+:root {
+  color-scheme: light;
+}
+
+html, body {
   height: 100%;
+}
+
+body {
+  @apply text-ink-900;
+  background:
+    radial-gradient(900px 500px at 10% 10%, rgba(29, 78, 216, 0.10), transparent 60%),
+    radial-gradient(700px 420px at 90% 20%, rgba(16, 185, 129, 0.10), transparent 60%),
+    linear-gradient(180deg, #f6f9ff 0%, #f3f6fb 45%, #ffffff 100%);
+}
+
+/* -------- Layout Helpers -------- */
+.container-wrap {
+  @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+.section {
+  @apply py-14 sm:py-16;
+}
+
+.section-alt {
+  @apply relative;
+}
+
+.section-alt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(700px 420px at 20% 0%, rgba(59, 130, 246, 0.10), transparent 60%),
+    radial-gradient(700px 420px at 90% 10%, rgba(20, 184, 166, 0.08), transparent 60%);
+  pointer-events: none;
+}
+
+.section-alt > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* -------- Typography -------- */
+.h1 {
+  @apply text-4xl sm:text-5xl font-extrabold tracking-tight text-white;
+}
+
+.h2 {
+  @apply text-2xl sm:text-3xl font-extrabold tracking-tight text-ink-900;
+}
+
+.p {
+  @apply text-ink-700 leading-relaxed;
+}
+
+/* -------- Cards / Panels -------- */
+.card {
+  @apply rounded-3xl border border-ink-200/70 bg-white/80 backdrop-blur shadow-soft;
+}
+
+.panel {
+  @apply rounded-3xl border border-ink-200/70 bg-white/70 backdrop-blur shadow-soft;
+}
+
+.shadow-soft {
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.08),
+    0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+/* -------- Buttons -------- */
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-bold
+  bg-brand-600 text-white hover:bg-brand-700 transition;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-bold
+  border border-white/25 text-white bg-white/10 hover:bg-white/15 transition;
+}
+
+/* -------- Page Wrapper Background -------- */
+.page-wrap {
+  @apply min-h-screen;
+}
+
+.page-hero {
+  @apply rounded-3xl overflow-hidden border border-ink-200/60 shadow-soft;
+}
+/* ===== GLOBAL PAGE BACKGROUND ===== */
+
+.page-bg {
+  background: linear-gradient(
+      180deg,
+      #f6f8fc 0%,
+      #eef2f9 100%
+  );
+  min-height: 100vh;
+}
+
+/* section spacing */
+.section {
+  padding: 70px 0;
+}
+
+.section-alt {
+  background: linear-gradient(180deg,#ffffff 0%,#f4f7fc 100%);
+}
+
+/* premium page header (used on all pages) */
+.page-hero {
+  background: linear-gradient(120deg,#1e3a8a,#1e40af,#0f172a);
+  color: white;
+  padding: 80px 0 90px 0;
+}
+
+.page-title {
+  font-size: 42px;
+  font-weight: 800;
+}
+
+.page-subtitle {
+  margin-top: 14px;
+  color: rgba(255,255,255,.85);
+  max-width: 700px;
+  line-height: 1.7;
+}
+
+/* premium cards */
+.card-pro {
+  background: white;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 15px 35px rgba(0,0,0,.08);
+  border: 1px solid #e7ecf5;
 }
