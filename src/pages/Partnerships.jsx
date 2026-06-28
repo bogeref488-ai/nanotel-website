@@ -1,99 +1,203 @@
+
+import React, { useState } from "react";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "../lib/firebase";
+import emailjs from "@emailjs/browser";
+
+const PARTNERSHIPS_EMAIL = "partnerships@nanotel.net";
+
 export default function Partnerships() {
+  const [form, setForm] = useState({
+    company: "",
+    contactName: "",
+    email: "",
+    country: "",
+    partnershipType: "",
+    otherPartnershipType: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+
+  function handleChange(e) {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      const finalPartnershipType =
+        form.partnershipType === "Other"
+          ? form.otherPartnershipType
+          : form.partnershipType;
+
+      await addDoc(collection(db, "partnershipInquiries"), {
+        ...form,
+        partnershipType: finalPartnershipType,
+        toEmail: PARTNERSHIPS_EMAIL,
+        status: "new",
+        createdAt: serverTimestamp(),
+      });
+
+      await emailjs.send(
+        "service_0559uuf",
+        "template_y01satd",
+        {
+          to_email: PARTNERSHIPS_EMAIL,
+          name: form.contactName,
+          email: form.email,
+          subject: `New partnership inquiry from ${form.company}`,
+          message: `
+Company / Organization: ${form.company}
+
+Contact Person: ${form.contactName}
+
+Email: ${form.email}
+
+Country: ${form.country}
+
+Partnership Type: ${finalPartnershipType}
+
+Message:
+${form.message}
+          `,
+          time: new Date().toLocaleString(),
+        },
+        "Ar9B8fLy3Kiaqf5n5"
+      );
+
+      setStatus("Partnership inquiry submitted successfully.");
+
+      setForm({
+        company: "",
+        contactName: "",
+        email: "",
+        country: "",
+        partnershipType: "",
+        otherPartnershipType: "",
+        message: "",
+      });
+    } catch (err) {
+      console.error(err);
+      setStatus("Error submitting inquiry.");
+    }
+  }
+
   return (
-    <div className="bg-white min-h-screen">
+    <div className="min-h-screen bg-slate-50">
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950 to-emerald-950" />
 
-      {/* CONFIDENTIAL STRIP */}
-      <div className="bg-emerald-800 text-white text-center text-xs tracking-widest py-2">
-        CONFIDENTIAL • STRATEGIC PARTNER INFORMATION
-      </div>
+        <div className="relative max-w-6xl mx-auto px-4 py-14 text-white">
+          <h1 className="text-4xl md:text-5xl font-extrabold">
+            Strategic Partnerships
+          </h1>
 
-      <section className="py-16">
-        <div className="container-wrap">
-
-          {/* HERO */}
-          <div className="rounded-3xl bg-gradient-to-br from-emerald-700 to-ink-950 text-white p-10 shadow-lift border border-white/10 relative overflow-hidden">
-            
-            <div className="absolute right-6 bottom-6 text-white/5 text-6xl font-extrabold select-none">
-              PARTNER ACCESS
-            </div>
-
-            <div className="inline-flex items-center gap-2 text-xs font-bold bg-white/10 px-3 py-1 rounded-full">
-              Strategic Partnerships
-            </div>
-
-            <h1 className="mt-6 text-3xl md:text-4xl font-extrabold">
-              Partner With Nanotel Africa
-            </h1>
-
-            <p className="mt-4 text-white/90 max-w-3xl leading-relaxed">
-              Nanotel collaborates with OEMs, operators, EPC firms, and technology 
-              partners to deliver scalable telecom programs across Africa under 
-              strict safety and compliance standards.
-            </p>
-
-            <div className="mt-8">
-              <a
-                href="mailto:partnerships@nanotel.net?subject=Strategic%20Partnership%20Inquiry"
-                className="bg-white text-emerald-800 font-bold px-6 py-3 rounded-xl hover:bg-white/90 transition"
-              >
-                Submit Confidential Inquiry
-              </a>
-            </div>
-          </div>
-
-          {/* PARTNER CATEGORIES */}
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            <PartnerCard title="OEM & Technology Partners">
-              Equipment integration, rollout support, and managed operations
-              programs across multi-country deployments.
-            </PartnerCard>
-
-            <PartnerCard title="Operators & Tower Companies">
-              SLA-based network maintenance, optimization, and structured reporting.
-            </PartnerCard>
-
-            <PartnerCard title="EPC & Infrastructure">
-              Fiber, civil works, energy, and site build collaboration
-              aligned to strict timeline governance.
-            </PartnerCard>
-
-            <PartnerCard title="Workforce & Training">
-              Certified workforce scaling and compliance-aligned training programs.
-            </PartnerCard>
-          </div>
-
-          {/* PRIVATE ACCESS */}
-          <div className="mt-12 rounded-2xl bg-ink-50 border border-ink-200 p-8">
-            <h2 className="text-xl font-bold text-ink-900">
-              Partner Onboarding
-            </h2>
-
-            <p className="mt-3 text-ink-700">
-              Detailed onboarding documentation, compliance policies, and
-              execution templates are shared privately after initial evaluation.
-            </p>
-
-            <div className="mt-6">
-              <a
-                href="mailto:partnerships@nanotel.net?subject=Partner%20Onboarding%20Request"
-                className="inline-flex items-center bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl hover:bg-emerald-800 transition"
-              >
-                Request Partner Evaluation
-              </a>
-            </div>
-          </div>
-
+          <p className="mt-4 text-white/80 max-w-3xl">
+            Nanotel Africa is building Africa’s next-generation telecommunications
+            infrastructure, equipment ecosystem, and digital connectivity
+            platform. We welcome strategic partners, infrastructure financiers,
+            development partners, and institutional capital partners.
+          </p>
         </div>
       </section>
-    </div>
-  );
-}
 
-function PartnerCard({ title, children }) {
-  return (
-    <div className="rounded-2xl bg-white border border-ink-200 p-6 shadow-soft hover:shadow-lift transition">
-      <h3 className="text-lg font-bold text-ink-900">{title}</h3>
-      <p className="mt-3 text-ink-700 leading-relaxed">{children}</p>
+      {/* Form */}
+      <section className="max-w-4xl mx-auto px-4 py-12">
+        <div className="rounded-3xl bg-white border border-slate-200 shadow-lg p-8">
+          <h2 className="text-2xl font-extrabold text-slate-900">
+            Partnership Inquiry
+          </h2>
+
+          <p className="mt-2 text-slate-600">
+            Submit your partnership proposal. Our team will review and respond.
+          </p>
+
+          <form onSubmit={handleSubmit} className="mt-6 grid gap-5">
+            <input
+              name="company"
+              placeholder="Company / Organization"
+              value={form.company}
+              onChange={handleChange}
+              className="border rounded-xl px-4 py-3"
+            />
+
+            <input
+              name="contactName"
+              placeholder="Contact person"
+              value={form.contactName}
+              onChange={handleChange}
+              className="border rounded-xl px-4 py-3"
+            />
+
+            <input
+              name="email"
+              placeholder="Email address"
+              value={form.email}
+              onChange={handleChange}
+              className="border rounded-xl px-4 py-3"
+            />
+
+            <input
+              name="country"
+              placeholder="Country"
+              value={form.country}
+              onChange={handleChange}
+              className="border rounded-xl px-4 py-3"
+            />
+
+            <select
+              name="partnershipType"
+              value={form.partnershipType}
+              onChange={handleChange}
+              className="border rounded-xl px-4 py-3"
+            >
+              <option value="" disabled>
+                Select partnership type
+              </option>
+
+              <option>Telecom Operator</option>
+              <option>OEM Equipment Vendor</option>
+              <option>Fiber Infrastructure Partner</option>
+              <option>EPC Contractor</option>
+              <option>Technology Partner</option>
+              <option>Other</option>
+            </select>
+
+            {form.partnershipType === "Other" && (
+              <input
+                name="otherPartnershipType"
+                placeholder="Please specify partnership type"
+                value={form.otherPartnershipType}
+                onChange={handleChange}
+                className="border rounded-xl px-4 py-3"
+              />
+            )}
+
+            <textarea
+              name="message"
+              placeholder="Describe your partnership proposal"
+              rows="5"
+              value={form.message}
+              onChange={handleChange}
+              className="border rounded-xl px-4 py-3"
+            />
+
+            <button className="bg-slate-900 text-white py-3 rounded-xl font-bold hover:bg-slate-800">
+              Submit Partnership Inquiry
+            </button>
+
+            {status && (
+              <p className="text-green-700 text-sm">{status}</p>
+            )}
+          </form>
+        </div>
+      </section>
     </div>
   );
 }

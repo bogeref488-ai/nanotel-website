@@ -1,97 +1,102 @@
-// src/components/Footer.jsx
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
+import { socials } from "../data/socials";
 
 export default function Footer() {
   return (
     <footer className="mt-16 text-white bg-gradient-to-br from-slate-950 via-blue-950 to-emerald-950">
-      {/* Accent strip */}
-      <div className="h-1 bg-gradient-to-r from-amber-400 via-emerald-400 to-blue-400" />
+
+      <div className="h-1 bg-gradient-to-r from-amber-400 via-emerald-400 to-blue-400"></div>
 
       <div className="max-w-6xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-3">
-        {/* Brand */}
+
+        {/* BRAND */}
         <div>
-        
-  <img
-    src={`${import.meta.env.BASE_URL}logo.png`}
-    alt="Nanotel Logo"
-    className="h-19 w-auto object-contain scale-110"
-  />
+          <img
+            src={`${import.meta.env.BASE_URL}logo.png`}
+            alt="Nanotel Logo"
+            className="h-16 w-auto object-contain"
+          />
 
-  <div className="text-white font-bold text-lg mt-3">
-    Nanotel Africa
-  </div>
+          <div className="text-white font-bold text-lg mt-3">
+            Nanotel Africa
+          </div>
 
-  <p className="mt-2 text-sm text-white/70 leading-relaxed">
-    Telecom infrastructure, managed services, ICT delivery, and open
-    network deployment across Africa.
-  </p>
-</div>
-        {/* Links */}
+          <p className="mt-2 text-sm text-white/70 leading-relaxed">
+           Nanotel Africa is a telecommunications and technology company focused on supporting connectivity, digital transformation and Infrastructure
+         development across Africa.
+            
+          </p>
+        </div>
+
+        {/* NAVIGATION */}
         <div className="text-sm">
           <div className="text-white font-semibold">Explore</div>
+
           <div className="mt-3 grid gap-2">
-            <NavLink className="text-white/80 hover:text-white hover:underline" to="/overview">
-              Overview
-            </NavLink>
-            <NavLink className="text-white/80 hover:text-white hover:underline" to="/services">
-              Business Lines
-            </NavLink>
-            <NavLink className="text-white/80 hover:text-white hover:underline" to="/partnerships">
-              Partnerships
-            </NavLink>
-            <NavLink className="text-white/80 hover:text-white hover:underline" to="/investors">
-              Investors
-            </NavLink>
-            <NavLink className="text-white/80 hover:text-white hover:underline" to="/contact">
-              Contact
-            </NavLink>
+            <NavLink to="/overview" className="text-white/80 hover:text-white hover:underline">Company Overview</NavLink>
+            <NavLink to="/about" className="text-white/80 hover:text-white hover:underline">About Nanotel</NavLink>
+            <NavLink to="/services" className="text-white/80 hover:text-white hover:underline">Business Lines</NavLink>
+            <NavLink to="/partnerships" className="text-white/80 hover:text-white hover:underline">Partnerships</NavLink>
+            <NavLink to="/investors" className="text-white/80 hover:text-white hover:underline">Investors</NavLink>
+            <NavLink to="/contact" className="text-white/80 hover:text-white hover:underline">Contact</NavLink>
           </div>
         </div>
 
-        {/* Contact */}
+        {/* CONTACT */}
         <div className="text-sm">
           <div className="text-white font-semibold">Contact</div>
 
           <div className="mt-3 space-y-2 text-white/85">
             <p>
-              <span className="text-white/60">Email:</span>{" "}
-              <a className="hover:underline" href="mailto:info@nanotel.net">
+              <span className="text-white/60">General:</span>{" "}
+              <a href="mailto:info@nanotel.net" className="hover:underline">
                 info@nanotel.net
               </a>
             </p>
+
             <p>
-              <span className="text-white/60">Partners:</span>{" "}
-              <a className="hover:underline" href="mailto:partnerships@nanotel.net">
+              <span className="text-white/60">Partnerships:</span>{" "}
+              <a href="mailto:partnerships@nanotel.net" className="hover:underline">
                 partnerships@nanotel.net
               </a>
             </p>
+
             <p>
               <span className="text-white/60">Investors:</span>{" "}
-              <a className="hover:underline" href="mailto:investors@nanotel.net">
+              <a href="mailto:investors@nanotel.net" className="hover:underline">
                 investors@nanotel.net
               </a>
             </p>
           </div>
 
-          <div className="mt-5 flex flex-wrap gap-2">
-            <a className="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 transition" href="#">
-              LinkedIn
+          {/* SOCIAL MEDIA */}
+          <div className="mt-6 flex gap-4 text-lg">
+
+            <a href={socials.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition">
+              <FaXTwitter />
             </a>
-            <a className="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 transition" href="#">
-              Facebook
+
+            <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition">
+              <FaLinkedin />
             </a>
-            <a className="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 transition" href="#">
-              YouTube
-            </a>
+
           </div>
         </div>
       </div>
 
       <div className="border-t border-white/10">
         <div className="max-w-6xl mx-auto px-4 py-4 text-xs text-white/70 flex justify-between gap-3 flex-wrap">
-          <span>© {new Date().getFullYear()} Nanotel Africa. All rights reserved.</span>
-          <span>Built for performance & trust.</span>
+          <span>
+            © {new Date().getFullYear()} Nanotel Africa. All rights reserved.
+          </span>
+
+          <span>
+            Empowering the Future of Open Networks
+          </span>
         </div>
       </div>
     </footer>

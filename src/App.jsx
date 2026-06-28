@@ -1,4 +1,5 @@
 // src/App.jsx
+// src/App.jsx
 import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 
@@ -12,14 +13,18 @@ import Overview from "./pages/Overview.jsx";
 import Investors from "./pages/Investors.jsx";
 import Partnerships from "./pages/Partnerships.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import AdminLogin from "./pages/AdminLogin.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import AdminMessages from "./pages/AdminMessages.jsx";
 
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 
+import { socials } from "./data/socials";
+
 export default function App() {
   return (
     <HashRouter>
-      {/* IMPORTANT: set a default text color so pages don't become white on white */}
       <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
         <TopBar />
         <Navbar />
@@ -34,6 +39,15 @@ export default function App() {
             <Route path="/investors" element={<Investors />} />
             <Route path="/human-capital" element={<HumanCapital />} />
             <Route path="/ethics" element={<Ethics />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route
+              path="/admin/messages"
+              element={
+                <ProtectedRoute>
+                  <AdminMessages />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
@@ -52,14 +66,32 @@ function TopBar() {
         <span className="font-semibold">
           Empowering the Future of Open Networks
         </span>
+
         <div className="flex gap-4 opacity-95">
-          <a className="hover:underline" href="#" rel="noreferrer">
+          <a
+            href={socials.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
             LinkedIn
           </a>
-          <a className="hover:underline" href="#" rel="noreferrer">
+
+          <a
+            href={socials.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
             Facebook
           </a>
-          <a className="hover:underline" href="#" rel="noreferrer">
+
+          <a
+            href={socials.youtube}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
             YouTube
           </a>
         </div>

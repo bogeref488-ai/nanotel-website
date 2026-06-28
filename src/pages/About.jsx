@@ -1,240 +1,331 @@
+import React from "react";
+import { NavLink } from "react-router-dom";
+
+const MISSION = [
+  "Deliver reliable telecommunications, ICT, and digital infrastructure solutions.",
+  "Support operators, enterprises, governments, and institutions through quality engineering and technical services.",
+  "Provide practical energy and technology solutions for resilient infrastructure operations.",
+  "Build strong local technical capacity through innovation, skills development, and knowledge transfer.",
+  "Develop long-term partnerships that create value for customers, communities, and stakeholders.",
+];
+
+const GOALS = [
+  {
+    title: "Reliable Infrastructure Delivery",
+    desc: "Deliver dependable telecom, ICT, energy, and digital infrastructure solutions for real operating environments.",
+  },
+  {
+    title: "Technical Excellence",
+    desc: "Provide quality engineering, deployment, maintenance, and support services across infrastructure projects.",
+  },
+  {
+    title: "Local Capacity Building",
+    desc: "Strengthen African technical capability through skills development, knowledge transfer, and practical project experience.",
+  },
+  {
+    title: "Sustainable Operations",
+    desc: "Support responsible infrastructure through energy-efficient systems, hybrid power, and long-term maintenance planning.",
+  },
+];
+
+const STAND_FOR = [
+  {
+    title: "Reliability",
+    desc: "Delivering dependable infrastructure and technical support that help organizations maintain continuous operations.",
+  },
+  {
+    title: "Innovation",
+    desc: "Applying technology, engineering, and practical problem-solving to improve infrastructure outcomes.",
+  },
+  {
+    title: "Partnership",
+    desc: "Working collaboratively with customers, partners, and communities to achieve shared goals.",
+  },
+];
+
+const VALUES = [
+  "Engineering Excellence",
+  "Reliable Delivery",
+  "Innovation & Continuous Improvement",
+  "Integrity & Transparency",
+  "Pan-African Collaboration",
+  "Sustainability & Inclusion",
+];
+
+const LEADERSHIP = [
+  {
+    name: "Bogere Francis",
+    title: "Founder & CEO",
+    bio: "Telecom infrastructure and network systems leadership focused on practical delivery, partnerships, and Pan-African growth.",
+    image: `${import.meta.env.BASE_URL}team/founder.jpg`,
+  },
+  {
+    name: "Mukiibi Fauzi Ssemakula",
+    title: "Chief Technology Officer",
+    bio: "Focused on network architecture, technical systems, infrastructure planning, and technology operations.",
+    image: `${import.meta.env.BASE_URL}team/cto.jpg`,
+  },
+  {
+    name: "Nalubega Lynnette",
+    title: "Strategy & Investment",
+    bio: "Supporting business strategy, partnerships, capital planning, and organizational development.",
+    image: `${import.meta.env.BASE_URL}team/cfo.jpg`,
+  },
+  {
+    name: "Dr. Nannyanzi Jovin",
+    title: "Head of R&D",
+    bio: "Leading research, innovation, energy solutions, and smart network development.",
+    image: `${import.meta.env.BASE_URL}team/rnd.jpg`,
+  },
+];
+
 export default function About() {
-  const leadership = [
-    {
-      name: "Bogere Francis",
-      role: "Founder & CEO",
-      desc:
-        "Leads Nanotel’s Pan-African strategy, partnerships, and long-term open network vision.",
-    },
-    {
-      name: "Mukiibi Fauzi",
-      role: "Network Delivery & Integration",
-      desc:
-        "Owns design, deployment execution, integration, and quality acceptance across projects.",
-    },
-    {
-      name: "Kabashambo Josephine",
-      role: "Managed Services & Maintenance",
-      desc:
-        "Leads SLA-based operations, incident response, preventive maintenance, and reporting.",
-    },
-    {
-      name: "Nanyanzi Jovin",
-      role: "OEM, Operators & Programs",
-      desc:
-        "Builds strategic alliances with OEMs, TowerCos, operators, and public programs.",
-    },
-  ];
-
-  const focusAreas = [
-    "ICT solutions and digital infrastructure",
-    "Telecommunications network deployment and management",
-    "Advanced connectivity for diverse operating environments",
-    "Intelligent and energy-aware technology integration",
-    "Managed services and technical support",
-  ];
-
   return (
-    <div className="page-bg">
-      {/* HERO */}
-      <section className="page-hero">
-        <div className="container-wrap">
-          <h1 className="page-title">About Nanotel</h1>
-          <p className="page-subtitle">
-            A Pan-African ICT company delivering modern digital and telecommunications solutions across Africa.
+    <div className="bg-ink-50">
+      {/* Hero */}
+      <header className="bg-gradient-to-r from-blue-950 via-blue-900 to-emerald-900 text-white">
+        <div className="max-w-6xl mx-auto px-4 py-16">
+          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+            Building Reliable Telecom & Digital Infrastructure
+          </h1>
+
+          <p className="mt-6 max-w-3xl text-white/80 text-lg leading-relaxed">
+            Nanotel Africa provides telecommunications infrastructure, ICT support,
+            energy systems, and digital infrastructure services for operators,
+            enterprises, institutions, and communities across Africa.
           </p>
-        </div>
-      </section>
 
-      {/* COMPANY PROFILE */}
-      <section className="section">
-        <div className="container-wrap">
-          <div className="card-pro bg-white">
-            <h2 className="text-2xl font-bold text-ink-900">Company Profile</h2>
-            <p className="mt-3 text-ink-700 leading-relaxed max-w-4xl">
-              Nanotel is a Pan-African Information and Communication Technology (ICT) company providing modern digital
-              and telecommunications solutions across Africa. We work with governments, enterprises, and infrastructure
-              partners to deliver secure, scalable, and future-ready connectivity.
-            </p>
-            <p className="mt-4 text-ink-700 leading-relaxed max-w-4xl">
-              Our services cover end-to-end network design, deployment, integration, and managed operations—supporting
-              reliable communication in both urban and challenging environments. Nanotel operates in compliance with
-              applicable national ICT and telecommunications frameworks, ensuring regulatory standards are met while
-              building resilient digital infrastructure that supports Africa’s digital transformation.
-            </p>
-          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <NavLink
+              to="/business-lines"
+              className="inline-block bg-white text-blue-950 font-bold px-6 py-3 rounded-xl hover:bg-white/90 transition"
+            >
+              Explore Our Services
+            </NavLink>
 
-          {/* Mission / Vision */}
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <div className="card-pro tone-ink">
-              <h3 className="text-xl font-bold">Vision</h3>
-              <p className="mt-2 text-ink-700">
-                To be a trusted African ICT partner enabling inclusive, innovative, and future-ready digital connectivity.
-              </p>
-            </div>
-
-            <div className="card-pro tone-blue">
-              <h3 className="text-xl font-bold">Mission</h3>
-              <p className="mt-2 text-ink-700">
-                To deliver reliable ICT and telecommunications solutions that empower communication, innovation, and
-                sustainable development across Africa.
-              </p>
-            </div>
-
-            <div className="card-pro tone-teal">
-              <h3 className="text-xl font-bold">Values</h3>
-              <p className="mt-2 text-ink-700">
-                Integrity, disciplined execution, compliance, quality delivery, and accountable partnerships.
-              </p>
-            </div>
+            <NavLink
+              to="/contact"
+              className="inline-block bg-white/10 border border-white/20 text-white font-bold px-6 py-3 rounded-xl hover:bg-white/15 transition"
+            >
+              Contact Us
+            </NavLink>
           </div>
         </div>
-      </section>
+      </header>
 
-      {/* CORE FOCUS AREAS */}
-      <section className="section section-alt">
-        <div className="container-wrap">
-          <div className="flex items-end justify-between gap-6 flex-wrap">
-            <div>
-              <h2 className="h2">Core Focus Areas</h2>
-              <p className="p mt-2 max-w-3xl">
-                Our delivery model combines infrastructure discipline with modern ICT capability to support reliable connectivity.
-              </p>
+      <main className="max-w-6xl mx-auto px-4 py-12 space-y-14">
+        {/* Company Overview */}
+        <section className="bg-white rounded-3xl shadow-soft border p-6 md:p-10">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-ink-950">
+            Company Overview
+          </h2>
+
+          <p className="mt-4 text-ink-700 leading-relaxed">
+            Nanotel Africa is a telecommunications and technology infrastructure
+            company focused on supporting connectivity, digital transformation,
+            and infrastructure development across African markets.
+          </p>
+
+          <p className="mt-4 text-ink-700 leading-relaxed">
+            We work with telecom operators, internet service providers, tower
+            companies, enterprises, institutions, development organizations, and
+            public-sector projects that require dependable infrastructure delivery,
+            technical support, and long-term operational reliability.
+          </p>
+
+          <ul className="mt-6 grid gap-3 md:grid-cols-2 text-ink-800">
+            {[
+              "Telecommunications infrastructure deployment",
+              "Fiber optic and network site support",
+              "Energy and hybrid power systems",
+              "ICT and digital infrastructure",
+              "Data centre and cloud support",
+              "Carrier equipment support",
+              "Technical operations and maintenance",
+              "Network monitoring and optimization",
+            ].map((item) => (
+              <li key={item} className="flex gap-3">
+                <span className="mt-2 h-2 w-2 rounded-full bg-emerald-500 shrink-0" />
+                <span className="leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 p-5 rounded-2xl bg-ink-50 border">
+            <p className="text-ink-700 leading-relaxed">
+              Our approach combines engineering discipline, local understanding,
+              reliable execution, and responsible partnerships to support practical
+              infrastructure solutions for real operating environments.
+            </p>
+          </div>
+        </section>
+
+        {/* Vision + Mission */}
+        <section className="grid gap-6 md:grid-cols-2">
+          <div className="bg-white rounded-3xl shadow-soft border p-6 md:p-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-800 text-sm font-semibold">
+              Our Vision
             </div>
+
+            <h3 className="mt-4 text-xl md:text-2xl font-extrabold text-ink-950">
+              Trusted infrastructure partner for Africa’s digital growth
+            </h3>
+
+            <p className="mt-4 text-ink-700 leading-relaxed">
+              To be a trusted African telecommunications and digital infrastructure
+              company delivering reliable connectivity, technology solutions, and
+              sustainable infrastructure that support economic growth and digital
+              transformation across the continent.
+            </p>
           </div>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {focusAreas.map((item) => (
-              <div key={item} className="card-pro bg-white">
-                <div className="flex items-start gap-3">
-                  <div className="h-3 w-3 rounded-full bg-brand-600 mt-2" />
-                  <p className="text-ink-800 font-medium">{item}</p>
-                </div>
+          <div className="bg-white rounded-3xl shadow-soft border p-6 md:p-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-800 text-sm font-semibold">
+              Our Mission
+            </div>
+
+            <ul className="mt-5 grid gap-3 text-ink-800">
+              {MISSION.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-brand-700 shrink-0" />
+                  <span className="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Goals */}
+        <section className="bg-white rounded-3xl shadow-soft border p-6 md:p-10">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-ink-950">
+            Our Goals
+          </h2>
+
+          <p className="mt-4 text-ink-700 leading-relaxed">
+            Nanotel Africa’s goals are focused on practical infrastructure delivery,
+            reliable technical support, local capacity building, and sustainable
+            technology solutions for organizations across Africa.
+          </p>
+
+          <div className="mt-6 grid gap-5 md:grid-cols-4">
+            {GOALS.map((goal) => (
+              <div key={goal.title} className="rounded-2xl border bg-ink-50 p-5">
+                <div className="font-extrabold text-ink-950">{goal.title}</div>
+                <p className="mt-2 text-sm text-ink-700 leading-relaxed">
+                  {goal.desc}
+                </p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FOUNDER + LEADERSHIP */}
-      <section className="py-20 bg-slate-50">
-  <div className="max-w-6xl mx-auto px-4">
-    
-    <h2 className="text-3xl font-bold text-center text-slate-900">
-      Founder & Leadership
-    </h2>
-    <p className="text-center text-slate-600 mt-3">
-      Driving innovation and connectivity across Africa.
-    </p>
+        {/* What We Stand For */}
+        <section className="bg-white rounded-3xl shadow-soft border p-6 md:p-10">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-ink-950">
+            What We Stand For
+          </h2>
 
-    <div className="mt-12 grid gap-10 md:grid-cols-3">
-
-      {/* Founder */}
-      <div className="text-center">
-        <img
-          src={`${import.meta.env.BASE_URL}team/founder.jpg`}
-          alt="Founder"
-          className="w-52 h-52 mx-auto object-cover rounded-2xl shadow-lg"
-        />
-        <h3 className="mt-6 text-xl font-bold text-slate-900">
-          Bogere Francis
-        </h3>
-        <p className="text-emerald-600 font-semibold">
-          Founder & CEO
-        </p>
-        <p className="mt-3 text-sm text-slate-600">
-          Visionary leader focused on building Africa’s future in ICT and open network infrastructure.
-        </p>
-      </div>
-
-      {/* CTO */}
-      <div className="text-center">
-        <img
-          src={`${import.meta.env.BASE_URL}team/cto.jpg`}
-          alt="Chief Technology Officer"
-          className="w-52 h-52 mx-auto object-cover rounded-2xl shadow-lg"
-        />
-        <h3 className="mt-6 text-xl font-bold text-slate-900">
-          Mukiibi Fauzi
-        </h3>
-        <p className="text-emerald-600 font-semibold">
-          CTO
-        </p>
-        <p className="mt-3 text-sm text-slate-600">
-          Leads advanced network design, infrastructure deployment, and technical innovation.
-        </p>
-      </div>
-
-      {/* CFO */}
-      <div className="text-center">
-        <img
-          src={`${import.meta.env.BASE_URL}team/cfo.jpg`}
-          alt="Chief Financial Officer"
-          className="w-52 h-52 mx-auto object-cover rounded-2xl shadow-lg"
-        />
-        <h3 className="mt-6 text-xl font-bold text-slate-900">
-          Nalubenga Lynnet
-        </h3>
-        <p className="text-emerald-600 font-semibold">
-          CFO
-        </p>
-        <p className="mt-3 text-sm text-slate-600">
-          Oversees financial strategy, investor relations, and sustainable growth planning.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-      {/* HQ + TEAMS */}
-      <section className="section section-alt">
-        <div className="container-wrap">
-          <h2 className="h2">Headquarters & Teams</h2>
-          <p className="p mt-2 max-w-3xl">
-            Our core leadership and delivery coordination is managed centrally, with field execution teams deployable across regions.
+          <p className="mt-4 text-ink-700 leading-relaxed">
+            At Nanotel Africa, we believe reliable infrastructure is the foundation
+            of digital transformation. Our work is guided by a commitment to quality,
+            practical engineering, responsible partnerships, and long-term value creation.
           </p>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <div className="card-pro tone-blue">
-              <h3 className="text-lg font-bold">Headquarters</h3>
-              <p className="mt-2 text-ink-700">
-                Uganda (HQ). Regional delivery is supported through scalable partner networks.
-              </p>
-            </div>
-
-            <div className="card-pro tone-ink">
-              <h3 className="text-lg font-bold">Field Engineering Teams</h3>
-              <p className="mt-2 text-ink-700">
-                Certified technicians and rollout crews for site delivery, integration, and commissioning.
-              </p>
-            </div>
-
-            <div className="card-pro tone-teal">
-              <h3 className="text-lg font-bold">NOC / Operations</h3>
-              <p className="mt-2 text-ink-700">
-                Monitoring, incident response, preventive maintenance and KPI reporting aligned to SLAs.
-              </p>
-            </div>
+          <div className="mt-6 grid gap-5 md:grid-cols-3">
+            {STAND_FOR.map((item) => (
+              <div key={item.title} className="rounded-2xl border bg-ink-50 p-5">
+                <h3 className="font-extrabold text-ink-950">{item.title}</h3>
+                <p className="mt-2 text-sm text-ink-700 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA */}
-      <section className="section">
-        <div className="container-wrap text-center">
-          <div className="card-pro max-w-2xl mx-auto border-2 border-brand-200 bg-brand-50">
-            <h2 className="text-2xl font-bold text-brand-900">Work with Nanotel</h2>
-            <p className="mt-3 text-ink-700">
-              We collaborate with governments, operators, TowerCos, OEMs, and enterprise customers across Africa.
-            </p>
-            <div className="mt-6 flex justify-center gap-3 flex-wrap">
-              <a className="btn-primary" href="#/partnerships">Partnerships</a>
-              <a className="btn-outline" href="mailto:info@nanotel.net">Email: info@nanotel.net</a>
-            </div>
+        {/* Leadership */}
+        <section className="bg-white rounded-3xl shadow-soft border p-6 md:p-10">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-ink-950">
+            Leadership & Team
+          </h2>
+
+          <p className="mt-3 text-ink-700 max-w-3xl leading-relaxed">
+            Nanotel Africa is led by a team focused on telecommunications
+            infrastructure, technology systems, partnerships, research, and
+            long-term operational growth.
+          </p>
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {LEADERSHIP.map((person) => (
+              <LeaderCard key={person.name} person={person} />
+            ))}
           </div>
+        </section>
+
+        {/* Corporate Values */}
+        <section className="bg-white rounded-3xl shadow-soft border p-6 md:p-10">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-ink-950">
+            Corporate Values
+          </h2>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {VALUES.map((value) => (
+              <div
+                key={value}
+                className="rounded-2xl border bg-ink-50 px-5 py-4 flex items-center gap-3"
+              >
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                <span className="font-semibold text-ink-900">{value}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+function LeaderCard({ person }) {
+  const initials = person.name
+    .split(" ")
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+
+  return (
+    <div className="bg-white rounded-2xl shadow-sm border overflow-hidden hover:shadow-md transition">
+      <div className="h-44 bg-gradient-to-br from-brand-950 via-ink-950 to-emerald-900 flex items-center justify-center">
+        <img
+          src={person.image}
+          alt={person.name}
+          className="h-28 w-28 rounded-full object-cover ring-4 ring-white/20"
+          loading="lazy"
+          onError={(event) => {
+            event.currentTarget.style.display = "none";
+            const parent = event.currentTarget.parentElement;
+            const fallback = parent.querySelector("[data-fallback]");
+            if (fallback) fallback.style.display = "flex";
+          }}
+        />
+
+        <div
+          data-fallback
+          className="hidden h-28 w-28 rounded-full bg-white/10 text-white font-extrabold text-2xl items-center justify-center ring-4 ring-white/20"
+        >
+          {initials}
         </div>
-      </section>
+      </div>
+
+      <div className="p-5">
+        <div className="font-extrabold text-ink-950">{person.name}</div>
+        <div className="text-sm font-semibold text-emerald-700 mt-1">
+          {person.title}
+        </div>
+        <p className="mt-3 text-sm text-ink-700 leading-relaxed">
+          {person.bio}
+        </p>
+      </div>
     </div>
   );
 }
